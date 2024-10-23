@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Berita</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="max-w-6xl mx-auto p-6">
+        <header class="mb-8">
+            <h1 class="text-4xl font-bold text-gray-900">Portal Berita Terkini</h1>
+            <p class="text-gray-600 mt-2">Update berita terbaru dan terpercaya</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="newsList">
+            <!-- Daftar berita akan di-generate melalui JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        // Data berita (simulasi database)
+        const newsData = [
+            {
+                id: 1,
+                title: "Dipimpin Legislator NasDem, Berikut Susunan Anggota Komisi II DPR",
+                image: "berita.png",
+                date: "23 Oktober 2024",
+                reporter: "Nandito Putra",
+                excerpt: "Komisi II DPR yang membidangi pemerintahan dalam negeri, pertanahan dan pemberdayaan aparatur akan dipimpin oleh Rifqinizamy Karsayuda...",
+                category: "Politik"
+            },
+            {
+                id: 2,
+                title: "UKM Golf ITS jadi Wadah Para Mahasiswa Pecinta Golf",
+                image: "berita3.png",
+                date: "25 September 2023",
+                reporter: "Vidiawan Nabiel",
+                excerpt: "Pertumbuhan ekonomi digital Indonesia mencapai target yang ditentukan dalam roadmap e-commerce 2024...",
+                category: "Olahraga"
+            },
+        ];
+
+        // Fungsi untuk membuat kartu berita
+        function createNewsCard(news) {
+            return `
+                <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <img src="${news.image}" alt="${news.title}" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">
+                                ${news.category}
+                            </span>
+                        </div>
+                        <h2 class="text-xl font-bold text-gray-900 mb-2 line-clamp-2">
+                            <a href="detail.html?id=${news.id}" class="hover:text-blue-600 transition-colors duration-200">
+                                ${news.title}
+                            </a>
+                        </h2>
+                        <p class="text-gray-600 mb-4 line-clamp-3">${news.excerpt}</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <span class="mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                ${news.date}
+                            </span>
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
+                                ${news.reporter}
+                            </span>
+                        </div>
+                    </div>
+                </article>
+            `;
+        }
+
+        // Render semua berita
+        window.addEventListener('DOMContentLoaded', () => {
+            const newsListContainer = document.getElementById('newsList');
+            newsListContainer.innerHTML = newsData.map(news => createNewsCard(news)).join('');
+        });
+
+        // Simpan data berita ke localStorage untuk diakses di halaman detail
+        localStorage.setItem('newsData', JSON.stringify(newsData));
+    </script>
+</body>
+</html>

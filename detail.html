@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Berita</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg my-8">
+        <div class="p-6">
+            <a href="index.html" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-200 mb-6 shadow-md">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                </svg>
+                Kembali ke Daftar Berita
+            </a>
+
+            <article id="newsDetail" class="prose lg:prose-xl max-w-none">
+                <!-- Konten berita akan di-generate melalui JavaScript -->
+            </article>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi untuk mendapatkan parameter dari URL
+        function getNewsId() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return parseInt(urlParams.get('id'));
+        }
+
+        // Data paragraf berita (bisa diubah sesuai kebutuhan)
+        const newsContent = {
+            1: {
+                paragraphs: [
+                    {
+                        type: 'opening',
+                        content: '<span class="font-bold text-gray-900">TEMPO.CO, Jakarta</span> - Komisi II DPR yang membidangi pemerintahan dalam negeri, pertanahan dan pemberdayaan aparatur akan dipimpin oleh Rifqinizamy Karsayuda. Anggota DPR dari Fraksi NasDem itu ditetapkan sebagai Ketua Komisi II dalam rapat paripurna pada Selasa, 22 Oktober 2024.'
+                    },
+                    {
+                        type: 'content',
+                        content: 'Rifqinizamy akan dibantu oleh empat wakil ketua yaitu Aria Bima dari Fraksi PDIP, Dede Yusuf dari Fraksi Demokrat, Zulfikar Arse Sadikin dari Fraksi Golkar, dan Bahtra dari Fraksi Gerindra.'
+                    },
+                    {
+                        type: 'content',
+                        content: 'Sebelumnya, Rapat Paripurna Ke-5 DPR RI Masa Persidangan I Tahun Sidang 2024-2025 menyetujui keanggotaan fraksi-fraksi pada alat kelengkapan dewan (AKD) DPR RI masa keanggotaan 2024-2029.'
+                    },
+                    {
+                        type: 'subheader',
+                        content: 'Berikut nama-nama anggota fraksi yang duduk di Komisi II DPR:'
+                    },
+                    {
+                        type: 'content',
+                        content: 'Fraksi PDIP: Aria Bima, Deddy Yevri Sitorus, Arif Wibowo, Udin Watubun, Bob Andika, Mamana Sitepu, Romy Soekarno, Giri, Ramanda N. Kiemas, Shintya Sandra Kusuma.'
+                    },
+                    {
+                        type: 'content',
+                        content: 'Golkar: Zulfikar Arse Sadikin, Ahmad Irawan, Andar Amin Harahap, Taufan Pawe, Ade Ginanjar, Agustina Margande, Ahmad Doli Kurnia Tanjung.'
+                    },
+                    {
+                        type: 'content',
+                        content: 'Gerindra: Bahtra, Ahmad Wazir Noviadi Heri Gunawan, Esthon L. Foenay, Longki Djanggola, Iwan Kurniawan.'
+                    },
+                    {
+                        type: 'content',
+                        content: 'NasDem: Rifqinizamy Karsayuda, Ujang Bey, Saan Mustopa, Fauzaj Khalid, Muhammad Habibur Rohman.'
+                    },
+                ]
+            },
+            2: {
+                paragraphs: [
+                    {
+                        type: 'opening',
+                        content: 'UKM Golf ITS jadi Wadah Para Mahasiswa Pecinta Golf'
+                    },
+                    {
+                        type: 'opening',
+                        content: 'Semakin tingginya minat mahasiswa terhadap olahraga golf, menginisiasi alumni (PGA ITS) membentuk sebuah organisasi atau lembaga untuk menaungi mahasiwa ITS yang mempunyai ketertarikan terhadap golf. Dari situlah, komunitas UKM Golf ITS yang terbetuk secara de facto pada November 2022 dan secara de jure pada Agustus 2023.'
+                    },
+                    {
+                        type: 'opening',
+                        content: 'Arsha Kusumandaru, Kepala Hubungan Masyarakat UKM Golf ITS menerangkan bahwa saat ini komunitasnya tersebut sedang dalam proses seleksi 400 mahasiswa untuk dijadikan anggota. Diharapkan nanti dengan seleksi ini akan tersaring para mahasiswa yang memang mempunyai minat terhadap olahraga golf.'
+                    },
+                    {
+                        type: 'opening',
+                        content: '“Untuk agenda rutin kita sendiri yaitu melakukan driving sebanyak dua kali seminggu dan on-course training sebanyak 1 kali dalam sebulan di lapangan yang menjadi homebase kita yaitu driving di Bukit Darmo Golf dan Brawijaya Driving Range, sedangkan untuk on-course training itu ada di Bukit Darmo Golf dan Lapangan Ahmad Yani,” jelasnya.'
+                    },
+                    {
+                        type: 'opening',
+                        content: 'Lantas seperti apa syarat yang harus dilakukan untuk bergabung dengan komunitas ini, Arshapun menambahkan bahwa  untuk saat ini anggota memang ditunjukan untuk mahasiswa aktif ITS, namun jangan khawatir nanti UKM Golf ITS akan membuat event-event yang berkaitan dengan golf agar masyarakat umum juga bisa berpartisipasi dalam keseruan UKM Golf ITS'
+                    },
+                    {
+                        type: 'opening',
+                        content: 'Dan untuk bergabung dalam komunitas UKM Golf ITS tidak memiliki syarat khusus. Pihaknya menyambut semua mahasiswa yang memiliki minat dalam golf, baik yang sudah berpengalaman maupun pemula. Yang paling penting adalah semangat untuk belajar dan bermain golf, serta berkontribusi positif dalam komunitas kami.'
+                    },
+                    {
+                        type: 'opening',
+                        content: 'Berbagai manfaatpun juga dapat diperoleh dari bermain golf yaitu dapat menjadi tempat di mana kesepakatan bisnis dibuat dan jaringan profesional dibangun. Memiliki keterampilan golf dapat membuka pintu untuk kesempatan berjejaring yang berharga dalam dunia kerja dan bisnis.'
+                    },
+                    {
+                        type: 'opening',
+                        content: '“Harapan kami untuk Komunitas Golf Mahasiswa ITS ke depan adalah terus tumbuh dan berkembang. Kami ingin menjadi wadah yang inklusif bagi mahasiswa yang mencintai golf dan ingin mengembangkan keterampilan mereka. Kami juga berharap dapat berkontribusi positif dalam promosi olahraga golf di kalangan generasi muda, membangun jaringan yang kuat, dan terus menjadi komunitas yang mendukung satu sama lain dalam perjalanan golf kami,” pungkasnya.'
+                    },
+                ]
+            }
+        };
+
+        // Fungsi untuk membuat konten berita
+        function createNewsDetail(news) {
+            const content = newsContent[news.id];
+            const paragraphsHtml = content.paragraphs.map(p => {
+                if (p.type === 'list') {
+                    return `
+                        <div class="bg-gray-50 rounded-lg p-6 my-8">
+                            <h2 class="text-xl font-bold text-gray-900 mb-4">${p.content}</h2>
+                            <div class="space-y-4">
+                                ${p.items.map(item => `
+                                    <div class="border-l-4 border-${item.color}-500 pl-4">
+                                        <h3 class="font-bold text-${item.color}-700">${item.title}</h3>
+                                        <p class="text-gray-700">${item.content}</p>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `;
+                } else if (p.type === 'subheader') {
+                    return `<h2 class="text-xl font-bold text-gray-900 mb-4">${p.content}</h2>`;
+                } else {
+                    return `<p class="mb-4">${p.content}</p>`;
+                }
+            }).join('');
+
+            return `
+                <h1 class="text-4xl font-bold text-gray-900 leading-tight mb-4">
+                    ${news.title}
+                </h1>
+
+                <div class="flex items-center text-gray-600 text-sm mb-8 pb-4 border-b border-gray-200">
+                    <span class="mr-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        ${news.date}
+                    </span>
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                        Reporter: ${news.reporter}
+                    </span>
+                </div>
+
+                <div class="relative rounded-xl overflow-hidden mb-8 shadow-lg">
+                    <img src="${news.image}" alt="${news.title}" class="w-full h-auto object-cover">
+                </div>
+
+                <div class="text-gray-800 leading-relaxed space-y-6">
+                    ${paragraphsHtml}
+                </div>
+            `;
+        }
+
+        // Render detail berita
+        window.addEventListener('DOMContentLoaded', () => {
+            const newsId = getNewsId();
+            const newsData = JSON.parse(localStorage.getItem('newsData'));
+            const news = newsData.find(item => item.id === newsId);
+
+            if (news) {
+                const newsDetailContainer = document.getElementById('newsDetail');
+                newsDetailContainer.innerHTML = createNewsDetail(news);
+                document.title = `${news.title} - Portal Berita`;
+            } else {
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>
